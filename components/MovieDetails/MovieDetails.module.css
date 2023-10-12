@@ -1,0 +1,35 @@
+.detailsContainer {
+  padding: 20px 15px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.movieHeader {
+  display: flex;
+  align-items: start;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.poster {
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.movieInfo {
+  flex-grow: 1;
+}
+
+.description {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.movieDetails {
+  margin-bottom: 20px;
+}
+
+.movieDetails p {
+  margin: 5px 0;
+}
