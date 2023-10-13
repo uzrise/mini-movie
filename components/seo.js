@@ -22,7 +22,7 @@ export default function SEO({
         name="facebook-domain-verification"
         content="j38avqf7rm0igxhi1uqaw4730c5rrt"
       />
-      <meta name="author" content="OneApply" />
+      <meta name="author" content="Movie" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
 
@@ -35,7 +35,7 @@ export default function SEO({
         content={description ?? ""}
         key="ogdesc"
       />
-      <meta property="og:site_name" content="OneApply" key="ogsitename" />
+      <meta property="og:site_name" content="Movie" key="ogsitename" />
       <meta property="og:image" content={image} key="ogimage" />
       <link
         rel="alternate"
