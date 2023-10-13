@@ -46,7 +46,8 @@ export default function Home({ initialMovies, totalMovies }) {
         onPageChange={handlePageClick}
         containerClassName={"pagination"}
         activeClassName={"active"}
-        initialPage={router.query.page ? Number(router.query.page) - 1 : 0}
+        forcePage={currentPage - 1}
+        // initialPage={router.query.page ? Number(router.query.page) - 1 : 0}
       />
     </>
   );
