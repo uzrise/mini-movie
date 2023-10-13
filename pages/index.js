@@ -1,10 +1,12 @@
 import { useRouter } from "next/router";
-import ReactPaginate from "react-paginate";
 import { useState, useEffect } from "react";
 import MovieList from "../components/MovieList";
 import fetchMovies from "../api/fetchMovies";
 import SEO from "../components/seo";
+import dynamic from "next/dynamic";
 const items = 20;
+
+const ReactPaginate = dynamic(() => import("react-paginate"), { ssr: false });
 
 export default function Home({ initialMovies, totalMovies }) {
   const [movies, setMovies] = useState(initialMovies);
