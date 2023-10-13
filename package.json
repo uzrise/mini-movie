@@ -9,12 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/lab": "^4.0.0-alpha.61",
     "axios": "^1.5.1",
     "next": "13.5.4",
-    "plaiceholder": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-paginate": "^8.2.0",
     "react-player": "^2.13.0"
   },
   "devDependencies": {

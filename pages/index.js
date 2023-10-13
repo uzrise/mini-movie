@@ -3,10 +3,8 @@ import { useState, useEffect } from "react";
 import MovieList from "../components/MovieList";
 import fetchMovies from "../api/fetchMovies";
 import SEO from "../components/seo";
-import dynamic from "next/dynamic";
+import Pagination from "@material-ui/lab/Pagination";
 const items = 20;
-
-const ReactPaginate = dynamic(() => import("react-paginate"), { ssr: false });
 
 export default function Home({ initialMovies, totalMovies }) {
   const [movies, setMovies] = useState(initialMovies);
@@ -30,26 +28,19 @@ export default function Home({ initialMovies, totalMovies }) {
     fetchPage();
   }, [router.query.page]);
 
-  const handlePageClick = async (selectedItem) => {
-    const selectedPage = selectedItem.selected + 1;
-    router.push(`/?page=${selectedPage}`, undefined, { shallow: true });
+  const handlePageChange = (event, value) => {
+    router.push(`/?page=${value}`, undefined, { shallow: true });
   };
 
   return (
     <>
       <SEO title={"Home"} companyName="Movie" />
       <MovieList movies={movies} />
-      <ReactPaginate
-        previousLabel={"<"}
-        nextLabel={">"}
-        pageCount={totalPages}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={5}
-        onPageChange={handlePageClick}
-        containerClassName={"pagination"}
-        activeClassName={"active"}
-        forcePage={currentPage - 1}
-        // initialPage={router.query.page ? Number(router.query.page) - 1 : 0}
+      <Pagination
+        count={totalPages}
+        page={pageNumber}
+        onChange={handlePageChange}
+        color="primary"
       />
     </>
   );
@@ -57,9 +48,10 @@ export default function Home({ initialMovies, totalMovies }) {
 
 export async function getServerSideProps(context) {
   const page = context.query.page ? Number(context.query.page) : 1;
-  const { movies, totalMovies, error } = await fetchMovies(page);
+  const { movies, totalMovies, error } = await fetchMovies(page, items);
 
   if (error) {
+    console.error(error);
     return { notFound: true };
   }
 

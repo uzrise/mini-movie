@@ -111,34 +111,10 @@ image {
     color-scheme: dark;
   }
 }
-
-/* Styles for react-paginate */
-.pagination {
+.MuiPaginationItem-root {
+  color: inherit !important;
+}
+.MuiPagination-root {
   display: flex;
   justify-content: center;
-  padding: 20px;
-  list-style: none;
-}
-
-.pagination li {
-  margin: 0 5px;
-}
-
-.pagination a {
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  color: #333;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-.active a {
-  border-color: #666;
-  background-color: #eee;
-}
-.pagination a.active,
-.pagination a:hover {
-  border-color: #666;
-  background-color: #eee;
-  cursor: pointer;
 }
