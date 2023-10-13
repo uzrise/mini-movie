@@ -1,7 +1,17 @@
 import MovieDetails from "../../components/MovieDetails";
 import axios from "axios";
+import SEO from "../../components/seo";
 export default function MoviePage({ movie }) {
-  return <MovieDetails movie={movie} />;
+  return (
+    <>
+      <SEO
+        title={movie.title}
+        image={movie.poster}
+        description={movie.description}
+      />
+      <MovieDetails movie={movie} />
+    </>
+  );
 }
 
 export async function getServerSideProps(context) {

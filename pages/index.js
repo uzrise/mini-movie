@@ -2,7 +2,8 @@ import { useRouter } from "next/router";
 import ReactPaginate from "react-paginate";
 import { useState, useEffect } from "react";
 import MovieList from "../components/MovieList";
-import fetchMovies from "../utils/fetchMovies";
+import fetchMovies from "../api/fetchMovies";
+import SEO from "../components/seo";
 const items = 20;
 
 export default function Home({ initialMovies, totalMovies }) {
@@ -33,23 +34,21 @@ export default function Home({ initialMovies, totalMovies }) {
   };
 
   return (
-    <div>
+    <>
+      <SEO title={"Home"} companyName="Movie" />
       <MovieList movies={movies} />
       <ReactPaginate
-        previousLabel={"previous"}
-        nextLabel={"next"}
-        breakLabel={"..."}
-        breakClassName={"break-me"}
+        previousLabel={"<"}
+        nextLabel={">"}
         pageCount={totalPages}
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={handlePageClick}
         containerClassName={"pagination"}
-        subContainerClassName={"pages pagination"}
         activeClassName={"active"}
-        initialPage={router.query.page ? Number(router.query.page) - 1 : 0} // Boshlang'ich sahifani o'rnatish
+        initialPage={router.query.page ? Number(router.query.page) - 1 : 0}
       />
-    </div>
+    </>
   );
 }
 
