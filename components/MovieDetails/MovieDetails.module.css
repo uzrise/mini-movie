@@ -33,3 +33,35 @@
 .movieDetails p {
   margin: 5px 0;
 }
+
+/* Mobil ekranlar uchun */
+@media (max-width: 600px) {
+  .movieHeader {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .poster {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .movieInfo {
+    text-align: center;
+  }
+}
+
+/* Tablet ekranlar uchun */
+@media (min-width: 601px) and (max-width: 900px) {
+  .detailsContainer {
+    padding: 20px;
+  }
+
+  .poster {
+    max-width: 50%;
+  }
+
+  .movieInfo {
+    padding: 0 20px;
+  }
+}

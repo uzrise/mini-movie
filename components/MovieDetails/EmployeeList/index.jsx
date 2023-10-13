@@ -8,7 +8,7 @@ const EmployeeList = ({ groups }) => {
     <div className={styles.employeeList}>
       {groups.map((group) => (
         <div key={group.post} className={styles.group}>
-          <h4>{group.post}</h4>
+          <h2>{group.post}</h2>
 
           <div className={styles.employees}>
             {group.employees.map((employee) => {
